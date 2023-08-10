@@ -18,7 +18,7 @@ const Layout = () => {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/Shoplificator/",
     element: <Layout />,
     children: [
       {
