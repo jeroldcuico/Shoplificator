@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Products from "./pages/Products/Products";
+import Product from "./pages/Product/Product";
+import Navigation from "./components/Navigation/Navigation";
+import Footer from "./components/Footer/Footer";
+import Categories from "./components/Categories";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const Layout = () => {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Navigation />
+      <Outlet />
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default App
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/Shoplificator/",
+        element: <Home />,
+      },
+      {
+        path: "/Shoplificator/products/:id",
+        element: <Products />,
+      },
+      {
+        path: "/Shoplificator/product/:id",
+        element: <Product />,
+      },
+      {
+        path: "/Shoplificator/category",
+        element: <Categories />,
+      },
+    ],
+  },
+]);
+
+export default function App() {
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
+}
