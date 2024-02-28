@@ -5,6 +5,7 @@ import Product from "./pages/Product/Product";
 import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
 import Categories from "./components/Categories";
+import ProductCategories from "./components/ProductCategories";
 
 const Layout = () => {
   return (
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/Shoplificator/category",
         element: <Categories />,
+      },
+      {
+        path: "/Shoplificator/products/category/:name",
+        element: <ProductCategories />,
       },
     ],
   },

@@ -10,7 +10,7 @@ export default function Product({ product }) {
     <>
       <div className="relative m-10 flex w-full max-w-xs flex-col duration-500 hover:scale-105 overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
         <input type="hidden" data-product={id} />
-        <a
+        <Link to={`/Shoplificator/product/${id}`}
           className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
           href="#"
         >
@@ -22,7 +22,7 @@ export default function Product({ product }) {
           <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">
             {discountPercentage}% OFF
           </span>
-        </a>
+        </Link>
         <div className="mt-4 px-5 pb-5">
           <a href="#">
             <h5 className="text-xl tracking-tight text-slate-900">{title}</h5>
